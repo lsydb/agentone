@@ -1,0 +1,26 @@
+# Python 项目环境使用规则
+
+## 核心约定
+
+1. **统一使用根目录虚拟环境**
+   - 所有子项目（langgraph/、gooleadk/、pcwz/ 等）共享同一个虚拟环境
+   - 位置：`/Users/shangweiyi/VscodeProjects/python/.venv`
+   - 禁止在各子目录下单独创建 `.venv` 或 `venv`
+
+2. **激活方式**
+   ```bash
+   cd /Users/shangweiyi/VscodeProjects/python
+   source .venv/bin/activate
+   ```
+
+3. **安装新依赖**
+   - 安装到根目录 `.venv` 中
+   - 安装后执行 `pip freeze > requirements.txt` 更新依赖清单
+
+4. **解释器选择**
+   - VS Code 中选择 `./.venv/bin/python` 作为 Python Interpreter
+
+5. **已清理的环境**
+   - 系统 Python（/usr/bin/python3）仅用于系统工具，不动它
+   - pyenv 3.12.13 作为 Python 版本管理器，提供基础解释器
+   - conda / Anaconda 已全部卸载，不再使用
