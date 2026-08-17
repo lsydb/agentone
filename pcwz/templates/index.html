@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章拾光 · 阅读助手</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="top-border"></div>
+
+  <div class="container">
+    <header class="header">
+      <h1>文章拾光</h1>
+      <p class="subtitle">摘录世间好文，一览精华</p>
+    </header>
+
+    <!-- 输入卡片 -->
+    <div class="card" id="inputCard">
+      <div class="error-msg" id="errorMsg"></div>
+
+      <div class="form-group">
+        <label for="url">文章链接</label>
+        <input
+          type="text"
+          id="url"
+          placeholder="粘贴微信公众号文章链接..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="apiKey">Kimi API Key</label>
+        <input
+          type="text"
+          id="apiKey"
+          placeholder="输入你的 Kimi API Key..."
+          autocomplete="off"
+        >
+      </div>
+
+      <button class="btn" id="submitBtn" onclick="handleSubmit()">
+        开始拾取
+      </button>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+      <div class="ink-drop"></div>
+      <p>正在拾取文章与凝练精华，请稍候……</p>
+    </div>
+
+    <!-- 结果展示 -->
+    <div class="results" id="results">
+      <div class="meta-info">
+        <h2 id="articleTitle"></h2>
+        <p class="author" id="articleAuthor"></p>
+      </div>
+
+      <div class="columns">
+        <!-- 原文 -->
+        <div class="panel panel-original">
+          <div class="panel-header">
+            <span class="icon">📖</span>
+            <h3>原文</h3>
+          </div>
+          <div class="panel-body" id="originalBody"></div>
+        </div>
+
+        <!-- 概括 -->
+        <div class="panel panel-summary">
+          <div class="panel-header">
+            <span class="icon">✨</span>
+            <h3>精华概括</h3>
+          </div>
+          <div class="panel-body" id="summaryBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>文章拾光 · 以简驭繁</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
